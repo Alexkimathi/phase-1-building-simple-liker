@@ -14,20 +14,20 @@ const heart= (event) =>{
     .then( res => {
       if(heart.innerText === EMPTY_HEART){
         heart.innerText = FULL_HEART
-        heart.classList.add("activated-heart")
+        heart.liker.add("activated-heart")
       }
       else{
         heart.innerText = EMPTY_HEART
-        heart.classList.remove("activated-heart")
+        heart.liker.remove("activated-heart")
       }
       
       
     })
     .catch(err => {
-      hide.classList.remove("hidden");
+      hide.liker.remove("hidden");
       hide.querySelector("#modal-message").textContent = err;
       setTimeout( () => {
-        modalDiv.classList.add("hidden")
+        modalDiv.liker.add("hidden")
       }, 3000)
     }) 
   
@@ -36,7 +36,7 @@ const heart= (event) =>{
 
 const hearts = document.querySelectorAll(".like-glyph");
 hearts.forEach( heart => {
-  heart.addEventListener("click", heart)
+  heart.addEventListener("click", clickHeart)
 })
 
 
